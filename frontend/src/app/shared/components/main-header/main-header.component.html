@@ -1,0 +1,175 @@
+<!-- app-navbar.component.html -->
+<nav
+  class="navbar navbar-expand-lg navbar-light"
+  style="background-color: #00a1ba"
+>
+  <div class="container-fluid mx-2">
+    <a class="navbar-brand fw-bold mx-auto-md" routerLink="/task" style="color: white;">ToDo App</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      style="border: none"
+      (click)="isCollapsed = !isCollapsed"
+      aria-controls="navbarScroll"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span *ngIf="isCollapsed" class="navbar-toggler-icon"></span>
+      <span *ngIf="!isCollapsed" style="font-size: larger" class="px-2 py-1">
+        X
+      </span>
+    </button>
+    <div
+      [ngbCollapse]="isCollapsed"
+      id="navbarScroll"
+      class="collapse navbar-collapse"
+    >
+      <ul
+        class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px"
+      >
+        <li class="nav-item">
+          <button
+            class="nav-link fw-bold active w-100"
+            aria-current="page"
+            (click)="addTaskModal(addTask)"
+            style="color: white;"
+          >
+            Add New Task
+          </button>
+        </li>
+      </ul>
+      <!-- <ul
+        class="navbar-nav my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px"
+      >
+        <li class="nav-item">
+          <button class="nav-link active w-100" aria-current="page" href="#">
+            Update Task
+          </button>
+        </li>
+      </ul> -->
+      <ul
+        class="navbar-nav my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px"
+      >
+        <li class="nav-item">
+          <button
+            class="nav-link fw-bold active w-100"
+            aria-current="page"
+            (click)="deleteAllModal(deleteTask)"
+            style="color: white;"
+          >
+            Delete All
+          </button>
+        </li>
+      </ul>
+      <ul
+        class="navbar-nav my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px"
+      >
+        <li class="nav-item">
+          <button
+            class="nav-link fw-bold active w-100"
+            aria-current="page"
+            (click)="logout()"
+            style="color: white;"
+          >
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<ng-template #addTask let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title pt-2">Add a new Task.</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <h5>Enter Title and Task detail.</h5>
+    <div class="form-floating my-3">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="title"
+        id="floatingInput"
+        placeholder=""
+      />
+      <label for="floatingInput">Title</label>
+    </div>
+    <div class="form-floating">
+      <textarea
+        class="form-control"
+        [(ngModel)]="task"
+        placeholder=""
+        id="floatingTextarea"
+        style="height: 200px"
+      ></textarea>
+      <label for="floatingTextarea">Task Detail...</label>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      class="btn btn-success"
+      *ngIf="this.title.length > 0 && this.task.length > 0 && !loading"
+      (click)="addNewTask()"
+    >
+      Add Task
+    </button>
+    <button class="btn btn-success" disabled="true" *ngIf="loading">
+      Loading...
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #deleteTask let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title pt-2">All tasks will be Deleted.</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <h5>Type to delete all tasks.</h5>
+    <div class="form-floating my-3">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="data"
+        id="floatingInput"
+        placeholder=""
+      />
+      <label for="floatingInput">DELETE-ALL</label>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      class="btn btn-danger"
+      *ngIf="data.toUpperCase() === 'DELETE-ALL'"
+      (click)="delAll()"
+    >
+      CONFIRM
+    </button>
+    <button
+      class="btn btn-danger"
+      disabled="true"
+      *ngIf="data.toUpperCase() !== 'DELETE-ALL'"
+    >
+      CONFIRM
+    </button>
+    <button class="btn btn-success" (click)="modal.dismiss('Cross click')">
+      DECLINE
+    </button>
+  </div>
+</ng-template>

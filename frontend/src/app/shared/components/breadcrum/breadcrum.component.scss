@@ -1,0 +1,17 @@
+.main {
+  background-color: #5a71ba;
+  height: 100%;
+  .breadcrumb {
+    margin-left: 0.6rem;
+    .breadcrumb-item {
+      a {
+        text-decoration: none;
+        color: white;
+        font-weight:500;
+      }
+    }
+  }
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  color: white;
+}

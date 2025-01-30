@@ -1,0 +1,52 @@
+<!-- app-navbar.component.html -->
+<nav
+  class="navbar navbar-expand-lg navbar-light"
+  style="background-color: #00a1ba"
+>
+  <div class="container-fluid mx-2">
+    <a class="navbar-brand mx-auto-md fw-bold" routerLink="/auth" style="color: white"
+      >ToDo App</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="isCollapsed = !isCollapsed"
+      aria-controls="navbarScroll"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      [ngbCollapse]="isCollapsed"
+      id="navbarScroll"
+      class="collapse navbar-collapse"
+    >
+      <ul
+        class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px"
+      >
+        <li class="nav-item fw-bold"*ngIf="this.url == '/auth/signup'">
+          <button
+            class="nav-link active w-100"
+            aria-current="page"
+            routerLink="/auth/login"
+            style="color: white"
+          >
+            Login
+          </button>
+        </li>
+        <li class="nav-item fw-bold"*ngIf="this.url == '/auth/login'">
+          <button
+            class="nav-link active w-100"
+            aria-current="page"
+            routerLink="/auth/signup"
+            style="color: white"
+          >
+            Register
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

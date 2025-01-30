@@ -1,0 +1,14 @@
+<section class="main">
+  <nav aria-label="  ">
+    <div class="container-fluid">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" *ngIf="isLoggedIn"><a routerLink="/task">Home</a></li>
+        <li class="breadcrumb-item" *ngIf="!isLoggedIn"><a routerLink="/auth">Home</a></li>
+        <li class="breadcrumb-item" *ngIf="url">
+          <a routerLink="{{ url }}">{{ parentsTitle }}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: white;">{{ title }}</li>
+      </ol>
+    </div>
+  </nav>
+</section>

@@ -1,0 +1,46 @@
+<app-breadcrum title="Login"></app-breadcrum>
+<div style="background-color: white">
+  <div class="container">
+    <div class="body-height row">
+      <div class="login-box p-5 m-auto col-xl-4 col-lg-5 col-md-7 col-sm-12">
+        <div class="heading my-4">
+          <h3 style="color: white">Sign In</h3>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              id="email"
+              type="email"
+              placeholder=""
+              name="Emailid:"
+              formControlName="email"
+            />
+            <label for="email">Email id: </label>
+          </div>
+
+          <div class="form-floating mt-4">
+            <input
+              type="text"
+              class="form-control"
+              id="Password\"
+              formControlName="password"
+              placeholder=""
+            />
+            <label for="Password">Password:</label>
+          </div>
+          <div *ngIf="errorMessage">
+            <p style="color: red">{{ message }}</p>
+          </div>
+
+          <div class="login-button mt-4" *ngIf="!loading">
+            <button class="btn fw-bold w-100">Login</button>
+          </div>
+          <div class="login-button mt-4" *ngIf="loading">
+            <button disabled class="btn fw-bold w-100">Loading...</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

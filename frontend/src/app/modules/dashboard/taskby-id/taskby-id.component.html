@@ -1,0 +1,93 @@
+<app-breadcrum title="{{title}}" parentsTitle="Dashboard" url="/task"></app-breadcrum>
+<div class="container">
+  <div class="body-height row my-3">
+    <div
+      class="main-box m-auto col-xl-4 col-lg-5 col-md-7 col-sm-12"
+      style="position: relative"
+    >
+      <a routerLink="/task" style="cursor: pointer">
+        <div class="mt-4 ms-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="font-size: x-large"
+            height="32"
+            width="25"
+            viewBox="0 0 448 512"
+          >
+            <!--!Font Awesome Free 6.5.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+            <style>
+              svg {
+                fill: white;
+              }
+            </style>
+            <path
+              d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8 .4 34.3z"
+            />
+          </svg>
+        </div>
+      </a>
+      <div class="text-end">
+        <i class="me-3" style="cursor: pointer" (click)="openDeleteModal(deleteTask)">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="font-size: x-large"
+            height="32"
+            width="25"
+            viewBox="0 0 448 512"
+          >
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
+            />
+          </svg>
+        </i>
+      </div>
+      <div class="form-floating my-3">
+        <input
+        [(ngModel)]="title"
+          type="text"
+          class="form-control"
+          id="floatingInput"
+          placeholder=""
+        />
+        <label for="floatingInput">Title</label>
+      </div>
+      <div class="form-floating">
+        <textarea
+        [(ngModel)]="task"
+          class="form-control"
+          placeholder="Leave a comment here"
+          id="floatingTextarea2"
+          style="height: 200px"
+        ></textarea>
+        <label for="floatingTextarea2">Task</label>
+      </div>
+      <div class="update-button mx-2 my-4">
+        <button class="w-100 btn" (click)="updateTask()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #deleteTask let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title pt-2">Are you sure?</h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <h5>{{title}} will be Deleted.</h5>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" (click)="delete()">
+        CONFIRM
+      </button>
+      <button class="btn btn-success" (click)="modal.dismiss('Cross click')">
+        DECLINE
+      </button>
+    </div>
+  </ng-template>

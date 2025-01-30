@@ -1,0 +1,64 @@
+<app-breadcrum title="Sign up"></app-breadcrum>
+<div style="background-color: #f8f9fa">
+  <div class="container">
+    <div class="body-height row mb-3">
+      <div class="login-box p-5 m-auto col-xl-4 col-lg-5 col-md-7 col-sm-12">
+        <div class="heading my-4">
+          <h3 style="color: white">Sign Up</h3>
+        </div>
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              id="username"
+              type="text"
+              placeholder=""
+              name="username"
+              formControlName="username"
+            />
+            <label for="username">UserName: </label>
+          </div>
+
+          <div class="form-floating mt-4">
+            <input
+              class="form-control"
+              id="email"
+              type="email"
+              placeholder=""
+              name="EmailId"
+              formControlName="email"
+            />
+            <label for="email">Email id: </label>
+          </div>
+
+          <div class="form-floating mt-4">
+            <input
+              type="text"
+              class="form-control"
+              id="Password"
+              formControlName="password"
+              placeholder=""
+            />
+            <label for="Password">Password:</label>
+          </div>
+
+          <div class="form-floating mt-4">
+            <input
+              class="form-control"
+              id="phone"
+              type="phone"
+              placeholder=""
+              name="phone"
+              formControlName="phone"
+            />
+            <label for="phone">Phone: </label>
+          </div>
+
+          <div class="login-button mt-4">
+            <button class="btn fw-bold w-100">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
