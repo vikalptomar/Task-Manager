@@ -13,7 +13,7 @@ This is a MEAN stack project structured into two directories: `frontend` and `ba
   ```sh
   git clone https://github.com/vikalptomar/Task-Manager/
   ```
-- Alternatively, download and extract `Task-Manager-master`.  
+- Alternatively, download and extract `Task-Manager-master.zip`.  
 
 ### Step 2: Open in a Code Editor  
 - Use any code editor (VS Code recommended) and open the `task-manager` directory.  
