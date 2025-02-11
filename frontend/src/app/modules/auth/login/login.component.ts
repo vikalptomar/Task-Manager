@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
       this.loginForm.value.email !== '' &&
       this.loginForm.value.password !== ''
     ) {
-      debugger;
       this.loading = true;
       this.userAuthService
         .login({
@@ -40,7 +39,7 @@ export class LoginComponent implements OnInit {
           password: this.loginForm.value.password,
         })
         .subscribe((val: any) => {
-          debugger
+
           this.loading = false;
           this.message = val.message;
           if (val.successCode === 1) {

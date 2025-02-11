@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { ThemeService } from 'src/app/core/services/theme/theme.service';
+import { CommonService } from 'src/app/core/services/common/common.service';
 
 @Component({
   selector: 'app-auth-header',
@@ -10,8 +12,13 @@ export class AuthHeaderComponent implements OnInit {
   isCollapsed = true;
   url: string = '';
   routerUrl: any;
+  isDarkMode = false;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private themeService: ThemeService,
+    private common: CommonService
+  ) {
     this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {
         this.url = ev.url;
@@ -19,9 +26,21 @@ export class AuthHeaderComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let theme = this.common.getCookie('theme');
+  }
 
   ngAfterContentInit() {
     this.url = this.router.url;
+  }
+  theme() {
+    let theme = this.common.getCookie('theme');
+
+    if (theme && theme == 'dark') {
+      this.isDarkMode = false;
+    } else {
+      this.isDarkMode = true;
+    }
+    this.themeService.setTheme(this.isDarkMode);
   }
 }

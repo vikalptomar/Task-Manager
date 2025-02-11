@@ -1,12 +1,25 @@
 <!-- app-navbar.component.html -->
-<nav
-  class="navbar navbar-expand-lg navbar-light"
-  style="background-color: #00a1ba"
->
-  <div class="container-fluid mx-2">
-    <a class="navbar-brand mx-auto-md fw-bold" routerLink="/auth" style="color: white"
-      >ToDo App</a
+<nav class="navbar navbar-expand-lg navbar-light head">
+  <div class="container-fluid">
+    <div
+      class="align-items-center d-flex"
+      (click)="theme()"
+      style="cursor: pointer"
     >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        [attr.fill]="isDarkMode ? 'white' : '#C4C4C4'"
+        class="bi bi-circle-fill"
+        viewBox="0 0 16 16"
+      >
+        <circle cx="8" cy="8" r="8" />
+      </svg>
+    </div>
+    <!-- <a class="navbar-brand mx-auto-md fw-bold" routerLink="/auth" style="color: white"
+      >ToDo App</a -->
+
     <button
       class="navbar-toggler"
       type="button"
@@ -26,25 +39,54 @@
         class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll"
         style="--bs-scroll-height: 100px"
       >
-        <li class="nav-item fw-bold"*ngIf="this.url == '/auth/signup'">
-          <button
-            class="nav-link active w-100"
-            aria-current="page"
-            routerLink="/auth/login"
-            style="color: white"
+        <!-- <li
+          class="nav-item align-items-center d-flex justify-content-center"
+          *ngIf="this.url == '/auth/signup'"
+        >
+          <small
+            ><button
+              [class]="isDarkMode ? 'btn btn-light' : 'btn btn-dark'"
+              aria-current="page"
+              routerLink="/auth/login"
+            >
+              <small>Log in</small>
+            </button></small
           >
-            Login
-          </button>
         </li>
-        <li class="nav-item fw-bold"*ngIf="this.url == '/auth/login'">
-          <button
-            class="nav-link active w-100"
-            aria-current="page"
-            routerLink="/auth/signup"
-            style="color: white"
+        <li
+          class="nav-item align-items-center d-flex justify-content-center"
+          *ngIf="this.url == '/auth/login'"
+        >
+          <small
+            ><button
+              [class]="isDarkMode ? 'btn btn-light' : 'btn btn-dark'"
+              aria-current="page"
+              routerLink="/auth/signup"
+            >
+              <small>Register</small>
+            </button></small
           >
-            Register
-          </button>
+        </li> -->
+        <li
+          class="nav-item mx-3 align-items-center d-flex justify-content-center"
+        >
+          <div ngbDropdown>
+            <a
+              style="
+                text-decoration: none;
+                cursor: pointer;
+                color: white !important;
+              "
+              id="dropdownConfig"
+              ngbDropdownToggle
+              ><small>English (united States)</small></a
+            >
+            <!-- <div ngbDropdownMenu aria-labelledby="dropdownConfig">
+              <button ngbDropdownItem>English (united States)</button>
+              <button ngbDropdownItem>Another Action</button>
+              <button ngbDropdownItem>Something else is here</button>
+            </div> -->
+          </div>
         </li>
       </ul>
     </div>

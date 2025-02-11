@@ -1,24 +1,85 @@
-.login-box{
-    box-shadow: 0 0 25px 2px rgb(136, 134, 134);
-    border-radius: 4%;
-    background-color: #00a1baba;
+@import "../../../../variables.scss";
+.login-box {
+  box-shadow: 0 0 25px 2px rgba(136, 134, 134, 0.5);
+  border-radius: 8px;
+  background-color: rgba(0, 161, 186, 0.8);
 }
-.login-button{  
-    button{
 
-        --bs-btn-color: #fff;
-        --bs-btn-bg: #5a71ba;
-        /* --bs-btn-border-color: #808c9e; */
-        --bs-btn-hover-color: #fff;
-        --bs-btn-hover-bg: #0e38bd;
-        /* --bs-btn-hover-border-color: #0a58ca; */
-        --bs-btn-focus-shadow-rgb: 49, 132, 253;
-        --bs-btn-active-color: #fff;
-        --bs-btn-active-bg: #0e38bd;
-        /* --bs-btn-active-border-color: #0a53be; */
-        --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-        --bs-btn-disabled-color: #fff;
-        --bs-btn-disabled-bg: #0e38bd;
-        --bs-btn-disabled-border-color: #242222;
+.login-button {
+  button {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #007bff;
+    --bs-btn-border-color: #007bff;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #0056b3;
+    --bs-btn-hover-border-color: #0056b3;
+    --bs-btn-focus-shadow-rgb: 0, 123, 255;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #0056b3;
+    --bs-btn-active-border-color: #0056b3;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #6c757d;
+    --bs-btn-disabled-border-color: #6c757d;
+  }
+}
+
+.bg-image {
+  //background-image: url('../../../../assets/login-back.jpg'); // Update the path to your image
+  background-image: var(--login-Background);
+  background-size: cover;
+  background-repeat: no-repeat;
+  // background-position: center;
+  min-height: 100vh;
+  z-index: -1;
+}
+@media (max-width: 1706px) {
+  .bg-image {
+    background-size: contain;
+  }
+}
+@media (max-width: 991px) {
+  .bg-image {
+    background-size: contain;
+    min-height: 50vh;
+    background-position: center;
+  }
+}
+
+.card {
+  border: none;
+}
+
+.loginWithbtn {
+  border-radius: 30px;
+  border: 1px solid var(--login-btn);
+  background-color: var(--bkg-color);
+  color: var(--text-color);
+  height: 40px;
+  transition: background-color 0.3s, color 0.3s;
+  svg {
+    fill: var(--text-color);
+  }
+  &:hover {
+    background-color: var(--login-btn);
+    color: white;
+    cursor: pointer;
+    svg {
+      fill: var(--bkg-color);
     }
+  }
+}
+
+.loginbtn {
+  border-radius: 30px;
+  border: 1px solid var(--login-btn);
+  background-color: var(--bkg-color);
+  color: var(--text-color);
+  height: 40px;
+  transition: background-color 0.3s, color 0.3s;
+  &:hover {
+    background-color: var(--login-btn);
+    color: white;
+    cursor: pointer;
+  }
 }

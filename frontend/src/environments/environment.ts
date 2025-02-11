@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  domainUrl:"http://localhost:5000/"
+  domainUrl:"http://localhost:5000/",
+  domain: 'localhost',
+
 };
 
 /*

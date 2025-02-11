@@ -15,6 +15,8 @@ export class SignupComponent implements OnInit {
     password: new FormControl(''),
     phone: new FormControl(''),
   });
+  loading: boolean = false;
+
   constructor(
     private userAuthService: UserAuthService,
     private router: Router
@@ -22,6 +24,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {}
   signup() {
+    this.loading = true;
     let data: any = this.signupForm.value;
     this.userAuthService
       .signup({
@@ -31,6 +34,7 @@ export class SignupComponent implements OnInit {
         phone: this.signupForm.value.phone,
       })
       .subscribe((val: any) => {
+        this.loading = false;
         this.router.navigate(['/']);
       });
   }

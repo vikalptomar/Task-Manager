@@ -1,0 +1,24 @@
+:root {
+  --text-color: #222;
+  --bkg-color: #fff;
+  --head-bkg-color: #ebedf0;
+  --shadow-color: #c2cbce;
+  --login-btn: #f04653;
+  --login-Background: url("./assets/login-back.jpg");
+}
+body.lightMode {
+  --text-color: #222;
+  --bkg-color: #fff;
+  --head-bkg-color: #ebedf0;
+  --shadow-color: #c2cbce;
+  --login-btn: #f04653;
+  --login-Background: url("./assets/login-back.jpg");
+}
+body.darkMode {
+  --text-color: #eee;
+  --bkg-color: #252222;
+  --head-bkg-color: #161616;
+  --shadow-color: #979393;
+  --login-btn: #00b0a5;
+  --login-Background: url("./assets/login-back-dark.jpg");
+}
