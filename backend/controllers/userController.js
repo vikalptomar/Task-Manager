@@ -52,7 +52,7 @@ const login = asyncHandler(async (req, resp) => {
           id: selectedUser.id,
         },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "61m" }
+        { expiresIn: "601m" }
       );
       console.log("accessToken=", accessToken);
       resp.status(200).json({ accessToken, message: "Success", successCode: 1 });

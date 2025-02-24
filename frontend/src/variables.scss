@@ -4,6 +4,7 @@
   --head-bkg-color: #ebedf0;
   --shadow-color: #c2cbce;
   --login-btn: #f04653;
+  --bkg-breadcrum: #ee8e95;
   --login-Background: url("./assets/login-back.jpg");
 }
 body.lightMode {
@@ -12,6 +13,8 @@ body.lightMode {
   --head-bkg-color: #ebedf0;
   --shadow-color: #c2cbce;
   --login-btn: #f04653;
+  --bkg-breadcrum: #ee8e95;
+
   --login-Background: url("./assets/login-back.jpg");
 }
 body.darkMode {
@@ -20,5 +23,6 @@ body.darkMode {
   --head-bkg-color: #161616;
   --shadow-color: #979393;
   --login-btn: #00b0a5;
+  --bkg-breadcrum: #99c0bd;
   --login-Background: url("./assets/login-back-dark.jpg");
 }

@@ -28,6 +28,11 @@ export class AuthHeaderComponent implements OnInit {
 
   ngOnInit(): void {
     let theme = this.common.getCookie('theme');
+    if (theme && theme == 'dark') {
+      this.isDarkMode = true;
+    } else {
+      this.isDarkMode = false;
+    }
   }
 
   ngAfterContentInit() {

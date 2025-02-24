@@ -57,13 +57,16 @@ export class MainComponent implements OnInit {
       this.getAllTask();
     });
   }
+
   onScrollDown() {
     // Load more items on scroll
     this.loadItems();
   }
+
   reload() {
     this.getAllTask();
   }
+
   getAllTask() {
     this.currentIndex = 0;
     this.displayedItems = [];
@@ -95,6 +98,7 @@ export class MainComponent implements OnInit {
       }
     }, 300);
   }
+
   scrollTop() {
     window.scrollTo(0, 0);
   }
@@ -118,7 +122,6 @@ export class MainComponent implements OnInit {
       title: this.title,
       task: this.task,
     };
-
     this.addTaskService.addTask(data).subscribe((val: any) => {
       console.log(val);
       if (val.status === 200) {
@@ -133,10 +136,12 @@ export class MainComponent implements OnInit {
       }
     });
   }
+
   taskById(item: any) {
     console.log(item);
     this.router.navigate([`/task/${item._id}`]);
   }
+
   openDeleteModal(deleteTask: any, item: any) {
     this.id = item._id;
     this.title_modal = item.title;

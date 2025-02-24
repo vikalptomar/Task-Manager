@@ -7,9 +7,10 @@ import {
 import { AddTaskService } from 'src/app/core/services/curd-task/add-task.service';
 import { NgToastService } from 'ng-angular-popup';
 import { BehaviourService } from 'src/app/core/services/behaviour.service';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonService } from 'src/app/core/services/common.service';
 import { CookieService } from 'ngx-cookie-service';
+import { ThemeService } from 'src/app/core/services/theme/theme.service';
 
 @Component({
   selector: 'app-main-header',
@@ -23,6 +24,7 @@ export class MainHeaderComponent implements OnInit {
   @ViewChild('deleteTask') private deleteTask:
     | TemplateRef<MainHeaderComponent>
     | undefined;
+
   private modalRefaddTask: any = NgbModalRef;
   private modalRefdeleteTask: any = NgbModalRef;
 
@@ -31,7 +33,7 @@ export class MainHeaderComponent implements OnInit {
   title: string = '';
   task: string = '';
   loading: any;
-
+  isDarkMode = false;
 
   constructor(
     private modalService: NgbModal,
@@ -40,13 +42,19 @@ export class MainHeaderComponent implements OnInit {
     private behaviourService: BehaviourService,
     private router: Router,
     private common: CommonService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private themeService: ThemeService
   ) {
     window.scroll(0, 0);
   }
 
   ngOnInit(): void {
-
+    let theme = this.common.getCookie('theme');
+    if (theme && theme == 'dark') {
+      this.isDarkMode = true;
+    } else {
+      this.isDarkMode = false;
+    }
   }
 
   addTaskModal(addTask: any) {
@@ -114,5 +122,15 @@ export class MainHeaderComponent implements OnInit {
     this.cookieService.delete('token', '/');
     this.cookieService.delete('token', '/', 'localhost');
     this.router.navigate(['auth/']);
+  }
+  theme() {
+    let theme = this.common.getCookie('theme');
+
+    if (theme && theme == 'dark') {
+      this.isDarkMode = false;
+    } else {
+      this.isDarkMode = true;
+    }
+    this.themeService.setTheme(this.isDarkMode);
   }
 }

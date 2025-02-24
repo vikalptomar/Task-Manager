@@ -2,12 +2,32 @@
   <nav aria-label="  ">
     <div class="container-fluid">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item" *ngIf="isLoggedIn"><a routerLink="/task">Home</a></li>
-        <li class="breadcrumb-item" *ngIf="!isLoggedIn"><a routerLink="/auth">Home</a></li>
-        <li class="breadcrumb-item" *ngIf="url">
-          <a routerLink="{{ url }}">{{ parentsTitle }}</a>
+        <li class="breadcrumb-item" *ngIf="isLoggedIn">
+          <a routerLink="/task" style="color: white !important"
+            ><small>Home</small></a
+          >
         </li>
-        <li class="breadcrumb-item active" aria-current="page" style="color: white;">{{ title }}</li>
+        <li class="breadcrumb-item" *ngIf="!isLoggedIn">
+          <a routerLink="/auth" style="color: white !important"
+            ><small>Home</small></a
+          >
+        </li>
+        <li class="breadcrumb-item" *ngIf="url">
+          <a routerLink="{{ url }}"
+            ><small>
+              {{ parentsTitle }}
+            </small>
+          </a>
+        </li>
+        <li
+          class="breadcrumb-item active"
+          aria-current="page"
+          style="color: white"
+        >
+          <small>
+            {{ title }}
+          </small>
+        </li>
       </ol>
     </div>
   </nav>
